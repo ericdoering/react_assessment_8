@@ -1,11 +1,11 @@
 import React from "react";
-import MadlibForm from "./MadlibForm";
+import MadlibSentence from "./MadlibSentence";
 
 const Madlib = () => {
  return (
 <>
     <p>Fill in the prompts below</p>
-    <MadlibForm />
+    <MadlibSentence />
 </>
  )}
 

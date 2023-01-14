@@ -10,9 +10,11 @@ function MadlibForm({ createMadlib }) {
   const handleAdjective = evt => {
     setAdjective(evt.target.value);
   };
+
   const handleNoun = evt => {
     setNoun(evt.target.value);
   };
+  
   const handleVerb = evt => {
     setVerb(evt.target.value);
   };
