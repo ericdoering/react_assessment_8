@@ -43,13 +43,11 @@ function MadlibForm({ createMadlib }) {
       <p>Fill in the prompts below</p>
       <form onSubmit={gatherInput}>
       <label htmlFor="passsage">Passage:</label>
-        <input
-          id="passage"
-          name="passage"
-          type="text"
-          onChange={handlePassage}
-          value={passage}
-        />
+      <select value={passage} id="passage" onChange={handlePassage} name="passage">
+          <option key="1" value="1" >Passage 1</option>
+          <option key="2" value="2" >Passage 2</option>
+          <option key="3" value="3" >Passage 3</option>
+      </select>
         <label htmlFor="adjective">Adjective:</label>
         <input
           id="adjective"
