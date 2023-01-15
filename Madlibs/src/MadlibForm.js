@@ -3,9 +3,14 @@ import {v4 as uuid} from "uuid";
 
 
 function MadlibForm({ createMadlib }) {
+  const [passage, setPassage] = useState("")
   const [adjective, setAdjective] = useState("");
   const [noun, setNoun] = useState("");
   const [verb, setVerb] = useState("");
+
+  const handlePassage = evt => {
+    setPassage(evt.target.value)
+  }
 
   const handleAdjective = evt => {
     setAdjective(evt.target.value);
@@ -22,10 +27,12 @@ function MadlibForm({ createMadlib }) {
   const gatherInput = evt => {
     evt.preventDefault();
     createMadlib({ 
+        passage, id: uuid(),
         adjective, id: uuid(),
         noun, id: uuid(),
         verb, id: uuid()
     });
+    setPassage("");
     setAdjective("");
     setNoun("");
     setVerb("");
@@ -33,7 +40,16 @@ function MadlibForm({ createMadlib }) {
 
   return (
     <div>
+      <p>Fill in the prompts below</p>
       <form onSubmit={gatherInput}>
+      <label htmlFor="passsage">Passage:</label>
+        <input
+          id="passage"
+          name="passage"
+          type="text"
+          onChange={handlePassage}
+          value={passage}
+        />
         <label htmlFor="adjective">Adjective:</label>
         <input
           id="adjective"

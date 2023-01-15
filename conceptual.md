@@ -48,8 +48,24 @@ when it comes to component state. It is best to use a unique id for key props.
 
 - Describe useEffect.  What use cases is it used for in React components?
 
+The useEffect Hook allows you to perform side effects within your components.
+Some examples of side effects include: fetching data, directly updating the DOM, and timers.
+useEffect accepts two arguments. The second argument is optional.
+useEffect(<function>, <dependency>)
+
 - What does useRef do?  Does a change to a ref value cause a rerender of a component?
+
+The useRef Hook allows you to persist values between renders.
+It can be used to store a mutable value that does not cause a re-render when updated.
+It can be used to access a DOM element directly.
 
 - When would you use a ref? When wouldn't you use one?
 
+useRef could be used if you wanted to count how many times your webpage rerenders. However, you would not 
+want to useRef if for example we wanted a display card to rerender with new material.
+
 - What is a custom hook in React? When would you want to write one?
+
+Hooks are in essence reusable functions that can be applied anywhere in the code.
+When you have component logic that needs to be used by multiple components, we can extract that logic to a custom Hook.
+Custom Hooks start with "use". An example would be a custom hook that would be able to hit multiple API's.

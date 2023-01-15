@@ -1,50 +1,31 @@
 import React, { useState } from "react";
 
-function MadlibList({ adjective = "squishy", noun = "bear", verb = "running", id = 1, update}) {
-  const [editAdjective, setEditAdjective] = useState(adjective);
-  const [editNoun, setEditNoun] = useState(noun);
-  const [editVerb, setEditVerb] = useState(verb);
-  const [isEditing, setIsEditing] = useState(false);
+function MadlibList({passage= 1, adjective = "squishy", noun = "bear", verb = "running"}) {
 
-  const toggleEdit = () => {
-    setIsEditing(edit => !edit);
-  };
-
-  const handleChange = evt => {
-    setEditAdjective(evt.target.value);
-    setEditNoun(evt.target.value);
-    setEditVerb(evt.target.value);
-  };
-
-
-  const handleUpdate = evt => {
-    evt.preventDefault();
-    update(id, editAdjective);
-    update(id, editNoun);
-    update(id, editVerb);
-    setIsEditing(false);
-  };
-
+if(passage === "1"){
   let jsx = (
     <div>
-      <h2>The {adjective} {noun} {verb} all the way down the street.</h2>
+        <h2>The {adjective} {noun} {verb} all the way down the street.</h2>
     </div>
   );
-
-  if (isEditing) {
-    jsx = (
-      <div>
-        <form onSubmit={handleUpdate}>
-          <input type="text" value={editAdjective} onChange={handleChange} />
-          <input type="text" value={editNoun} onChange={handleChange} />
-          <input type="text" value={editVerb} onChange={handleChange} />
-          <button>Update!</button>
-        </form>
-      </div>
-    );
-  }
-
   return jsx;
+}
+if(passage ===  "2"){
+  let jsx = (
+    <div>
+        <h2>{verb} away said the {adjective} {noun} before it's too late.</h2>
+    </div>
+  );
+  return jsx;
+}
+if(passage === "3"){
+  let jsx = (
+    <div>
+        <h2>It is important that the {noun} gets plenty of {verb} or they will be a very {adjective} {noun}</h2>
+    </div>
+  );
+  return jsx;
+}
 }
 
 export default MadlibList;
